@@ -1,9 +1,15 @@
 function Message() {
-    const message = "Hello world";
-    
+
+    const message = "This is the default message if no name is provided";
+    const name = "Pedro";
+
     return (
         <div>
-            <h1>{message}</h1>
+            {name ? (
+                <h1>Hello {name}</h1>
+            ) : (
+                <h1>{message}</h1>
+            )}
         </div>
     )
 }

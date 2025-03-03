@@ -1,9 +1,7 @@
-import Message from './components/Message';
-
 export function App() {
   return (
     <>
-      <Message />
+      <h1>Hello World</h1>
     </>
   );
 } 
