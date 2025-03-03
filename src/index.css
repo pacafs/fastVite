@@ -2,3 +2,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.list-row-title {
+    @apply flex-1 max-w-[120px] min-w-[120px] break-words text-docs-text;
+}

@@ -25,7 +25,7 @@ export function App() {
                       <li className="p-4 pb-2 text-xs opacity-60 tracking-wide">Most played songs this week</li>
                       
                       <li className="list-row">
-                        <div>
+                        <div className="list-row-title">
                           <div>Dio Lupa</div>
                           <div className="text-xs uppercase font-semibold opacity-60">Remaining Reason</div>
                         </div>
@@ -38,8 +38,8 @@ export function App() {
                       </li>
                       
                       <li className="list-row">
-                        <div>
-                          <div>Ellie Beilish</div>
+                        <div className="list-row-title">
+                          <div>Ellie Beilish ajkajsfakjfkajsfkjaskfjakjsfsjk</div>
                           <div className="text-xs uppercase font-semibold opacity-60">Bears of a fever</div>
                         </div>
                         <button className="btn btn-square btn-ghost">
@@ -51,7 +51,7 @@ export function App() {
                       </li>
                       
                       <li className="list-row">
-                        <div>
+                        <div className="list-row-title">
                           <div>Sabrino Gardener</div>
                           <div className="text-xs uppercase font-semibold opacity-60">Cappuccino</div>
                         </div>

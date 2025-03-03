@@ -1,7 +1,7 @@
 function Message() {
 
     const message = "This is the default message if no name is provided";
-    const name = "Pedro";
+    const name = false;
 
     return (
         <div>
