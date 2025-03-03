@@ -1,7 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.tsx'
+import NewApp from './NewApp.tsx';
+// import App from './App.tsx'
 
 // Make sure the root element exists
 const rootElement = document.getElementById('root');
@@ -11,6 +12,7 @@ if (!rootElement) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <App />
+   {/* <App /> */}
+    <NewApp />
   </StrictMode>,
 )

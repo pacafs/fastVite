@@ -22,8 +22,6 @@ export function App() {
                 <aside className="col-span-2 bg-docs p-4 flex flex-col items-center">
                     <h1 className="text-5xl font-bold text-docs-title mb-4">Tasks</h1>
                     <ul className="list bg-base-100 rounded-box shadow-md">
-                      <li className="p-4 pb-2 text-xs opacity-60 tracking-wide">Most played songs this week</li>
-                      
                       <li className="list-row">
                         <div className="list-row-title">
                           <div>Dio Lupa</div>
@@ -39,7 +37,7 @@ export function App() {
                       
                       <li className="list-row">
                         <div className="list-row-title">
-                          <div>Ellie Beilish ajkajsfakjfkajsfkjaskfjakjsfsjk</div>
+                          <div>Ellie Beilish</div>
                           <div className="text-xs uppercase font-semibold opacity-60">Bears of a fever</div>
                         </div>
                         <button className="btn btn-square btn-ghost">
