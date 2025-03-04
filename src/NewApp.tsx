@@ -3,11 +3,78 @@ import Alert from "./components/Alert";
 import Message from "./components/Message";
 import Button from "./components/Button";
 import { useState } from "react";
+import axios from 'axios';
+
 
 export default function NewApp() {
+    const [refreshToken, setRefreshToken] = useState<string>("");
 
     const [AlertIsVisible, setAlertVisibility] = useState(false);
     const [selectedItem, setSelectedItem] = useState<{ country: string | null; animal: string | null }>({ country: null, animal: null });
+
+    const fetchData = async () => {
+        try {
+            const response = await axios.get("http://localhost:8000/tasks");
+            console.log(response);
+        } catch (error) {
+            console.error("Test request error", error);
+        }
+    };
+
+    const signUp = async () => {
+        try {
+            const response = await axios.post("http://localhost:8000/users/register", 
+                { 
+                  username: "pacafs",
+                  email: "test@gmail.com",
+                  password: "password"
+                }
+            );
+            console.log("Sign up successful", response.data);
+        } catch (error) {
+            console.error("Sign up error", error);
+        }
+    };
+
+    const login = async () => {
+        try {
+            const response = await axios.post("http://localhost:8000/users/login", {
+                username: "pacafs",
+                password: "password"
+            });
+            // Store the authentication token for subsequent requests
+            setRefreshToken(response.data.refresh_token);
+            axios.defaults.headers.common["Authorization"] = `Bearer ${response.data.access_token}`;
+            console.log("Login successful", response.data);
+        } catch (error) {
+            console.error("Login error", error);
+        }
+    };
+
+    const logout = async () => {
+        try {
+            const response = await axios.post("http://localhost:8000/users/logout", {
+                refresh_token: refreshToken
+            });
+            delete axios.defaults.headers.common["Authorization"];
+            console.log("Login successful", response.data);
+        } catch (error) {
+            console.error("Login error", error);
+        }
+    };
+    const getRefreshToken = async () => {
+        try {
+            const response = await axios.post("http://localhost:8000/users/refresh", {
+                refresh_token: refreshToken
+            });
+
+            setRefreshToken(response.data.refresh_token);
+            axios.defaults.headers.common["Authorization"] = `Bearer ${response.data.access_token}`;
+            console.log("Login successful", response.data);
+        } catch (error) {
+            console.error("Login error", error);
+        }
+    };
 
 
     const items = [
@@ -45,8 +112,28 @@ export default function NewApp() {
     return (
         <div className="container mx-auto">
             <div className="flex justify-center pt-10 mb-10">
-                <Button color="neutral" onClick={() => setAlertVisibility(!AlertIsVisible)}>
+                <Button color="neutral" onClick={() => {setAlertVisibility(!AlertIsVisible); fetchData()}}>
                     {AlertIsVisible ? "Hide" : "Show"}
+                </Button>
+            </div>
+            <div className="flex justify-center pt-10 mb-1">
+                <Button color="neutral" onClick={() => {signUp()}}>
+                    Sign Up
+                </Button>
+            </div>
+            <div className="flex justify-center pt-10 mb-1">
+                <Button color="neutral" onClick={() => {login()}}>
+                    Login
+                </Button>
+            </div>
+            <div className="flex justify-center pt-10 mb-1">
+                <Button color="neutral" onClick={() => {getRefreshToken()}}>
+                    Refresh Token
+                </Button>
+            </div>
+            <div className="flex justify-center pt-10 mb-1">
+                <Button color="neutral" onClick={() => {logout()}}>
+                    Logout
                 </Button>
             </div>
             <div className="flex justify-center pt-10 mb-10">
