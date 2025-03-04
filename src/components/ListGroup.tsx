@@ -5,7 +5,7 @@ interface ListGroupProps {
     items: string[];
     heading: string;
     //(item: string) => void
-    onSelectItem: (item: string) => void;
+    onSelectItem: (item: string, type: string) => void;
 }
 
 function ListGroup({ items, heading, onSelectItem }: ListGroupProps) {
@@ -14,11 +14,11 @@ function ListGroup({ items, heading, onSelectItem }: ListGroupProps) {
 
     const items_list = items.map((item, index) => {
         return <li 
-                  className={`list-row ${index === selectedIndex && 'bg-docs-bg'}`}
+                  className={`list-row cursor-pointer ${index === selectedIndex && 'bg-docs-bg'}`}
                   key={index} 
                   onClick={() => {
                     setSelectedIndex(index);
-                    onSelectItem(item);
+                    onSelectItem(item, heading); // heading is also the type of the item in this case "country" or "animal
                   }}>
                     {item}
                 </li>

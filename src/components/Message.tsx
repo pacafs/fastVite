@@ -1,17 +1,22 @@
-function Message() {
-
-    const message = "This is the default message if no name is provided";
-    const name = false;
-
-    return (
-        <div>
-            {name ? (
-                <h1>Hello {name}</h1>
-            ) : (
-                <h1>{message}</h1>
-            )}
-        </div>
-    )
+interface MessageProps {
+    country: string;
+    animal: string;
 }
 
-export default Message;
+const Message = ({ country, animal }: MessageProps) => {
+  return (
+    <>
+        {country && animal ? (
+        <div>
+            <p>I'm just a {animal} living in {country}</p>
+        </div>
+        ) : (
+        <div>
+            <p>Please select a country and an animal</p>
+        </div>
+        )}
+    </>
+  )
+}
+
+export default Message
