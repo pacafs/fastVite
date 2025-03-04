@@ -57,9 +57,9 @@ export default function NewApp() {
                 refresh_token: refreshToken
             });
             delete axios.defaults.headers.common["Authorization"];
-            console.log("Login successful", response.data);
+            console.log("Logged out successfully", response.data);
         } catch (error) {
-            console.error("Login error", error);
+            console.error("Logout error", error);
         }
     };
     const getRefreshToken = async () => {
@@ -70,9 +70,9 @@ export default function NewApp() {
 
             setRefreshToken(response.data.refresh_token);
             axios.defaults.headers.common["Authorization"] = `Bearer ${response.data.access_token}`;
-            console.log("Login successful", response.data);
+            console.log("Set refresh token successfully", response.data);
         } catch (error) {
-            console.error("Login error", error);
+            console.error("Refresh token error", error);
         }
     };
 
