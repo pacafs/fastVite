@@ -14,7 +14,7 @@ function ListGroup({ items, heading, onSelectItem }: ListGroupProps) {
 
     const items_list = items.map((item, index) => {
         return <li 
-                  className={`list-row ${index === selectedIndex && 'bg-docs-bg text-docs-title'}`}
+                  className={`list-row ${index === selectedIndex && 'bg-docs-bg'}`}
                   key={index} 
                   onClick={() => {
                     setSelectedIndex(index);

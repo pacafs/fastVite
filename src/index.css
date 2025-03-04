@@ -3,6 +3,30 @@
 @tailwind components;
 @tailwind utilities;
 
-.list-row-title {
-    @apply flex-1 max-w-[120px] min-w-[120px] break-words text-docs-text;
+body {
+    @apply bg-docs-bg text-docs-text;
+}
+
+/* .list-row-title {
+    @apply flex-1 max-w-[150px] min-w-[150px] break-words text-docs-text;
+} */
+
+.btn-primary {
+    @apply bg-primary text-primary-content;
+}
+
+.btn-secondary {
+    @apply bg-secondary;
+}   
+
+.btn-warning {
+    @apply bg-warning;
+} 
+
+.btn-info {
+    @apply bg-info;
+}
+
+.btn-neutral {
+    @apply bg-base-200 text-docs-title;
 }

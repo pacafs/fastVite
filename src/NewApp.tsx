@@ -1,4 +1,7 @@
 import ListGroup from "./components/ListGroup";
+import Alert from "./components/Alert";
+import Message from "./components/Message";
+import Button from "./components/Button";
 
 export default function NewApp() {
 
@@ -33,9 +36,21 @@ export default function NewApp() {
         console.log(item);
     }
 
+    const handleClick = () => {
+        console.log("Button clicked");
+    }
+
     return (
         <div className="container mx-auto">
-            <h1 className="text-6xl font-bold text-center mt-10">
+            <div className="flex justify-center pt-10 mb-10">
+                <Alert>
+                    <Message />
+                </Alert>
+            </div>
+            <div className="flex justify-center">
+                <Button color="neutral" onClick={handleClick}>Click me</Button>
+            </div>
+            <h1 className="text-6xl font-bold text-center">
                 Lists
             </h1>
             <ListGroup items={items}   heading="Countries" onSelectItem={console_log_item} />
