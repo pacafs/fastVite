@@ -7,9 +7,9 @@ body {
     @apply bg-docs-bg text-docs-text;
 }
 
-/* .list-row-title {
+.list-row-title {
     @apply flex-1 max-w-[150px] min-w-[150px] break-words text-docs-text;
-} */
+}
 
 .btn-primary {
     @apply bg-primary text-primary-content;
