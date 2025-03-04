@@ -46,7 +46,7 @@ export default function NewApp() {
         <div className="container mx-auto">
             <div className="flex justify-center pt-10 mb-10">
                 <Button color="neutral" onClick={() => setAlertVisibility(!AlertIsVisible)}>
-                    {AlertIsVisible ? "Try again" : "Show my combo"}
+                    {AlertIsVisible ? "Hide" : "Show"}
                 </Button>
             </div>
             <div className="flex justify-center pt-10 mb-10">
@@ -59,8 +59,10 @@ export default function NewApp() {
             <h1 className="text-6xl font-bold text-center">
                 Lists
             </h1>
-            <ListGroup items={items}   heading="Countries" onSelectItem={(item) => message_log(item, 'country')} />
-            <ListGroup items={animals} heading="Animals" onSelectItem={(item) => message_log(item, 'animal')} />
+            <div className="grid grid-cols-2 gap-4">
+                <ListGroup items={items} heading="Countries" onSelectItem={(item) => message_log(item, 'country')} />
+                <ListGroup items={animals} heading="Animals" onSelectItem={(item) => message_log(item, 'animal')} />
+            </div>
         </div>
     )
 }
